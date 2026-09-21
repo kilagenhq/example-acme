@@ -1,0 +1,382 @@
+# The capability vocabulary — the menu, and the facet documents are grouped by.
+#
+# No maturity, no coverage: what is actually deployed is measured in the
+# estate. The reasoning ships with the framework: see "Why Kilagen is this
+# way" in the dashboard's Reference tab.
+
+capabilities:
+- id: grc.policy-management
+  name: Policy and Standard Management
+  domain: grc
+  description: Maintaining the policies and standards that define what Acme requires of itself,
+    with a review cycle and an approval record.
+  why: Every framework Acme is measured against starts by asking for documented, approved and
+    reviewed policy. Without it nothing below can be evidenced.
+- id: grc.risk-management
+  name: Risk Management
+  domain: grc
+  description: Identifying, scoring, treating and reviewing information security risks against
+    a single criticality matrix.
+  why: Risk is how security spend gets prioritised; without a register the loudest team wins
+    instead of the largest exposure.
+- id: grc.compliance-management
+  name: Compliance Management
+  domain: grc
+  description: Mapping requirements to the frameworks Acme is measured against and keeping the
+    evidence an auditor asks for.
+  why: PCI DSS and ISO 27001 are contractual conditions of doing business with Acme's merchants
+    and enterprise customers.
+- id: grc.vendor-risk-management
+  name: Third-Party Risk Management
+  domain: grc
+  description: Reviewing the security of suppliers before they are onboarded and periodically
+    afterwards.
+  why: A payments platform inherits its suppliers' failures; the largest ones hold cardholder
+    data or privileged access.
+- id: grc.exception-management
+  name: Exception Management
+  domain: grc
+  description: Recording approved deviations from a requirement, with compensating controls
+    and a hard expiry.
+  why: Deviations happen; undocumented ones become permanent and surface during an audit instead
+    of during a review.
+- id: grc.asset-inventory
+  name: Asset Inventory
+  domain: grc
+  description: Knowing which systems exist, who owns them, what data they hold and how critical
+    they are.
+  why: Every other control is scoped by this list. An unknown system is an unprotected one.
+- id: grc.remediation-tracking
+  name: Remediation Tracking
+  domain: grc
+  description: Carrying findings and gaps to closure in the engineering tracker, with an owner
+    and a date.
+  why: Findings that live in a report get forgotten; findings that live in the sprint board
+    get fixed.
+- id: grc.business-continuity
+  name: Business Continuity and Disaster Recovery
+  domain: grc
+  description: Planning and testing how Acme keeps processing payments through a major outage.
+  why: Merchants lose revenue by the minute; the recovery objectives in the BIA are contractual
+    for the largest of them.
+- id: iam.identity-provider
+  name: Identity Provider
+  domain: iam
+  description: A single directory of workforce identities, integrated with the HR system, from
+    which every application draws its accounts.
+  why: One directory means one place to disable an account, which is the control an auditor
+    and an incident both depend on.
+- id: iam.mfa
+  name: Multi-Factor Authentication
+  domain: iam
+  description: Phishing-resistant second factors on every workforce login, enforced by the identity
+    provider.
+  why: Credential phishing is the threat with the highest priority in Acme's threat catalogue;
+    MFA is the control that answers it.
+- id: iam.single-sign-on
+  name: Single Sign-On
+  domain: iam
+  description: Applications authenticate against the identity provider over SAML or OIDC rather
+    than holding local credentials.
+  why: Local application passwords survive offboarding and cannot be centrally revoked.
+- id: iam.joiner-mover-leaver
+  name: Joiner-Mover-Leaver
+  domain: iam
+  description: Provisioning on hire, adjusting on role change and revoking on departure, driven
+    by the HR system.
+  why: Access that outlives the reason for it is the most common audit finding and the cheapest
+    one to prevent.
+- id: iam.access-reviews
+  name: Access Certification
+  domain: iam
+  description: Periodic review by system owners of who holds access and at what level.
+  why: Entitlements accumulate quietly; the review is the only routine that removes them.
+- id: iam.privileged-access-management
+  name: Privileged Access Management
+  domain: iam
+  description: Time-bound, approved and recorded elevation to administrative rights, rather
+    than standing privilege.
+  why: A standing administrator account turns any single compromise into a complete one.
+- id: iam.credential-management
+  name: Credential Management
+  domain: iam
+  description: A managed vault for the shared credentials and API keys that cannot yet be replaced
+    by federated identity.
+  why: Credentials that have nowhere to live end up in spreadsheets, chat messages and source
+    code.
+- id: infra.cloud-security-posture
+  name: Cloud Security Posture Management
+  domain: infra
+  description: Continuous assessment of cloud configuration against a hardening baseline, with
+    findings routed to the owning team.
+  why: Misconfiguration, not exploitation, is how cloud environments are usually breached.
+- id: infra.endpoint-protection
+  name: Endpoint Detection and Response
+  domain: infra
+  description: An agent on every managed device that detects, blocks and records malicious behaviour.
+  why: The workforce is remote-first; the laptop is the perimeter.
+- id: infra.network-security
+  name: Network and Edge Security
+  domain: infra
+  description: Segmentation, egress control and edge protection for the platform, including
+    WAF and DDoS mitigation.
+  why: The cardholder data environment must be demonstrably segmented from the rest of the estate,
+    and the checkout is internet-facing.
+- id: infra.patch-management
+  name: Patch and Vulnerability Remediation
+  domain: infra
+  description: Applying operating system and platform patches within the deadlines set by severity.
+  why: Unpatched components are the second most common root cause in Acme's risk register.
+- id: infra.infrastructure-hardening
+  name: Infrastructure Hardening
+  domain: infra
+  description: Baseline configuration for accounts, networks and workloads, expressed as infrastructure-as-code.
+  why: A baseline that is code can be reviewed, tested and re-applied; a baseline that is a
+    document cannot.
+- id: infra.backup-and-restore
+  name: Backup and Restore
+  domain: infra
+  description: Automated, encrypted backups of production data with periodic restore testing.
+  why: Ransomware and operator error have the same remedy, and only a tested restore proves
+    it works.
+- id: infra.workload-protection
+  name: Cloud Workload Protection
+  domain: infra
+  description: Runtime visibility into containers and virtual machines, with detection of anomalous
+    process and network behaviour.
+  why: Build-time scanning stops known-vulnerable images shipping; it does not see what a running
+    workload does.
+- id: appsec.sast
+  name: Static Application Security Testing (SAST)
+  domain: appsec
+  description: Scanning source code for vulnerabilities before deployment.
+  why: Catches security bugs early in the SDLC, before they reach production.
+- id: appsec.sca
+  name: Software Composition Analysis (SCA)
+  domain: appsec
+  description: Identifying known vulnerabilities in third-party dependencies.
+  why: Third-party libraries are a major attack surface; SCA ensures known CVEs are flagged
+    and patched.
+- id: appsec.secrets-scanning
+  name: Secrets Scanning
+  domain: appsec
+  description: Scanning repositories for accidentally committed credentials and API keys.
+  why: Prevents credential leaks that could lead to account compromise or data breach.
+- id: appsec.iac-scanning
+  name: Infrastructure as Code Scanning
+  domain: appsec
+  description: Scanning infrastructure-as-code templates and manifests for misconfigurations
+    before they are applied.
+  why: Catches infrastructure misconfigurations before they are deployed to production, where
+    they become a posture finding instead.
+- id: appsec.container-scanning
+  name: Container Image Scanning
+  domain: appsec
+  description: Scanning built images for vulnerable packages and unsafe configuration before
+    they reach the registry.
+  why: An image inherits every CVE in its base layer, and base layers are updated far less often
+    than application code.
+- id: appsec.dast
+  name: Dynamic Application Security Testing (DAST)
+  domain: appsec
+  description: Testing running applications for vulnerabilities by probing exposed endpoints.
+  why: Finds vulnerabilities that static analysis misses — runtime issues, middleware CVEs and
+    configuration errors.
+- id: appsec.api-security
+  name: API Security Testing
+  domain: appsec
+  description: Testing APIs against their published specifications for contract violations and
+    authorisation flaws.
+  why: The payments API is Acme's product and its largest attack surface; broken object-level
+    authorisation would not be caught by anything else in this domain.
+- id: appsec.threat-modeling
+  name: Threat Modeling
+  domain: appsec
+  description: Structured analysis of a feature or service against the threats it plausibly
+    faces, before it is built.
+  why: The cheapest place to remove a design flaw is the design.
+- id: appsec.security-champions
+  name: Security Champions
+  domain: appsec
+  description: A named engineer in each product team who carries security context back into
+    their own backlog.
+  why: Two application security engineers cannot review everything eight product teams build.
+- id: appsec.ai-code-review
+  name: AI-Assisted Code Review
+  domain: appsec
+  description: Developers use an AI assistant to review their own changes for security issues
+    before opening a pull request.
+  why: Scales security review beyond what the team can manually cover, catching issues at development
+    time.
+- id: secops.log-management
+  name: Log Collection and Retention
+  domain: secops
+  description: Collecting security-relevant logs from the platform, the cloud and the identity
+    provider, and retaining them for the required period.
+  why: An investigation can only reach as far back as the logs do, and PCI DSS sets a floor
+    of twelve months.
+- id: secops.siem
+  name: Security Monitoring
+  domain: secops
+  description: Correlating collected logs into alerts a human can act on.
+  why: Logs nobody reads are storage costs, not a control.
+- id: secops.detection-engineering
+  name: Detection Engineering
+  domain: secops
+  description: Writing, testing and tuning the rules that turn events into alerts, and retiring
+    the ones that only fire falsely.
+  why: Detections that are not maintained decay into noise, and noise is how real alerts get
+    missed.
+- id: secops.alert-triage
+  name: Alert Triage and Escalation
+  domain: secops
+  description: Getting each alert to a human within a defined time, with a documented decision
+    on what happened next.
+  why: Detection without a response path is only a record of what went wrong.
+- id: secops.vulnerability-management
+  name: Vulnerability Management
+  domain: secops
+  description: One view of the vulnerabilities across cloud, workloads and applications, prioritised
+    and tracked to closure.
+  why: Findings arrive from six tools; without a single queue they are triaged six different
+    ways.
+- id: secops.threat-intelligence
+  name: Threat Intelligence
+  domain: secops
+  description: Tracking which threat actors and techniques are relevant to a payments platform,
+    and feeding that into detections and threat models.
+  why: Prioritisation without an outside view drifts towards whatever the team saw most recently.
+- id: ir.incident-response-plan
+  name: Incident Response Plan
+  domain: ir
+  description: A documented plan naming the roles, the severity scale, the decision points and
+    the regulatory clocks.
+  why: Nobody designs a response during the incident; whatever is written down beforehand is
+    what actually happens.
+- id: ir.incident-playbooks
+  name: Incident Playbooks
+  domain: ir
+  description: Scenario-specific procedures for the incident types Acme actually sees.
+  why: A general plan does not tell the analyst at 03:00 which log to pull first.
+- id: ir.on-call-management
+  name: On-Call and Escalation
+  domain: ir
+  description: A rotation that guarantees someone answers, with an escalation path that ends
+    at a named executive.
+  why: Out-of-hours coverage is the difference between a contained incident and a disclosed
+    one.
+- id: ir.incident-communications
+  name: Incident Communications
+  domain: ir
+  description: Dedicated channels, a status page and pre-agreed wording for merchants, the card
+    schemes and the supervisory authority.
+  why: Notification deadlines are measured in hours, and the first message sets the tone of
+    everything that follows.
+- id: ir.digital-forensics
+  name: Digital Forensics
+  domain: ir
+  description: Collecting and preserving evidence from endpoints and cloud workloads so that
+    a conclusion can be defended afterwards.
+  why: A breach notification asserts what did and did not happen; that assertion needs evidence
+    behind it.
+- id: ir.tabletop-exercises
+  name: Tabletop Exercises
+  domain: ir
+  description: Rehearsing an incident with the people who would actually run it.
+  why: A plan that has never been walked through fails at its first untested assumption.
+- id: offensive.penetration-testing
+  name: Penetration Testing
+  domain: offensive
+  description: Independent testing of the platform by a qualified third party, with findings
+    tracked to closure.
+  why: PCI DSS requires it annually, and it is the only assurance activity that does not start
+    from Acme's own assumptions.
+- id: offensive.bug-bounty
+  name: Vulnerability Disclosure and Bug Bounty
+  domain: offensive
+  description: A published route for outside researchers to report a vulnerability, and a paid
+    programme for the findings worth paying for.
+  why: Researchers will find issues whether or not there is a way to report them; the only choice
+    is where the report lands.
+- id: offensive.red-teaming
+  name: Red Teaming
+  domain: offensive
+  description: Goal-driven adversary simulation against the live environment, without warning
+    the defenders.
+  why: It is the only exercise that tests detection and response rather than configuration.
+- id: offensive.purple-teaming
+  name: Purple Teaming
+  domain: offensive
+  description: Running known attacker techniques with the defenders watching, to measure what
+    the detections actually catch.
+  why: Detection coverage claimed from a rule list is a guess until something is executed against
+    it.
+- id: awareness.security-training
+  name: Annual Security Training
+  domain: awareness
+  description: Yearly training for the whole workforce, with completion tracked and chased.
+  why: Required by every framework Acme is measured against, and the completion record is the
+    evidence.
+- id: awareness.onboarding-training
+  name: Onboarding Training
+  domain: awareness
+  description: Security induction in the first week, before production access is granted.
+  why: The first week is when accounts, devices and habits are set.
+- id: awareness.phishing-simulation
+  name: Phishing Simulation
+  domain: awareness
+  description: Regular simulated phishing campaigns with follow-up training for those who click.
+  why: Credential phishing is Acme's highest-priority threat; the click rate is the only number
+    that tracks it.
+- id: awareness.role-based-training
+  name: Role-Based Training
+  domain: awareness
+  description: Additional training for the roles whose mistakes cost the most — developers,
+    administrators and finance.
+  why: Generic awareness training does not teach a developer to avoid an injection flaw.
+- id: data-security.data-classification
+  name: Data Classification
+  domain: data-security
+  description: A four-level scheme applied to the data assets Acme holds, driving the controls
+    each one requires.
+  why: Controls that apply uniformly are either too heavy for public data or too light for cardholder
+    data.
+- id: data-security.encryption-in-transit
+  name: Encryption in Transit
+  domain: data-security
+  description: TLS everywhere, with a minimum version and cipher set enforced at the edge and
+    between services.
+  why: Cardholder data crossing a network unencrypted is a reportable failure, not a finding.
+- id: data-security.encryption-at-rest
+  name: Encryption at Rest
+  domain: data-security
+  description: Storage-level encryption for databases, object storage and backups, with keys
+    held in the key management service.
+  why: It is the control that makes a lost disk, a stale snapshot or a mis-shared bucket survivable.
+- id: data-security.key-management
+  name: Key Management
+  domain: data-security
+  description: Generation, storage, rotation and destruction of cryptographic keys under a documented
+    lifecycle.
+  why: Encryption is only as good as the custody of the keys, and PCI DSS audits the lifecycle
+    rather than the algorithm.
+- id: data-security.data-loss-prevention
+  name: Data Loss Prevention
+  domain: data-security
+  description: Detecting and blocking sensitive data leaving through email, file sharing or
+    endpoints.
+  why: Most data leaves an organisation by accident, through a channel nobody was monitoring.
+- id: data-security.data-retention
+  name: Data Retention and Disposal
+  domain: data-security
+  description: Holding data for as long as it is needed and demonstrably no longer, including
+    secure disposal.
+  why: Data kept past its purpose is pure liability, and the retention period is the first thing
+    a supervisory authority asks for.
+- id: data-security.dspm
+  name: Data Security Posture Management
+  domain: data-security
+  description: Discovering where sensitive data actually lives, rather than where the inventory
+    says it lives.
+  why: Copies of production data in staging and analytics are the gap between the classification
+    scheme and reality.

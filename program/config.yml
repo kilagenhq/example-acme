@@ -1,0 +1,51 @@
+# Identity and framework selection for this program.
+name: Acme Corp
+repo: https://github.com/kilagenhq/example-acme
+
+# How far this content has been migrated. Managed by 'kilagen update content';
+# do not edit by hand.
+schema_version: 3
+
+# Who this program belongs to. Rendered in the dashboard's About view.
+organization:
+  legal_name: Acme Corporation Ltd.
+  industry: B2B payments platform
+  jurisdictions: [ireland, united-states]
+  headcount: 250
+  remote_first: true
+  license: MIT-0
+  description: >
+    Acme Corp runs a card-payments platform for European and US merchants:
+    a hosted checkout, a payments API, and a merchant portal. Cardholder data
+    is processed in the platform's own environment, which is what puts PCI DSS
+    in scope and drives most of what this program does.
+
+# Compliance frameworks this program is measured against. Kilagen ships the
+# clause vocabularies, so an id here is all it takes; program/model/frameworks/
+# is only for overriding a shipped edition or adding one of your own.
+# Coverage is computed over these, and it is the only coverage Acme claims.
+frameworks:
+  - id: pci_dss_4_0_1
+    name: PCI DSS v4.0.1
+    url: https://www.pcisecuritystandards.org/
+    binding: mandatory
+  - id: iso_27001
+    name: ISO/IEC 27001:2022
+    url: https://www.iso.org/standard/27001
+    binding: voluntary
+  - id: soc2
+    name: SOC 2 Trust Services Criteria
+    url: https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services
+    binding: voluntary
+  - id: nist_csf
+    name: NIST Cybersecurity Framework 2.0
+    url: https://www.nist.gov/cyberframework
+    binding: reference
+  - id: iso_27017
+    name: ISO/IEC 27017:2015
+    url: https://www.iso.org/standard/43757.html
+    binding: reference
+  - id: iso_27018
+    name: ISO/IEC 27018:2019
+    url: https://www.iso.org/standard/76559.html
+    binding: reference

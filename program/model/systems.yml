@@ -1,0 +1,46 @@
+# The systems this program's documents refer to.
+#
+# An id and a name. What is deployed, how it is configured and who uses it
+# is the estate's truth — link to its entry there with url: if you have one.
+
+systems:
+- id: 1password
+  name: 1Password
+- id: aws
+  name: AWS Platform Accounts
+- id: aws-kms
+  name: AWS Key Management Service
+- id: cloudflare
+  name: Cloudflare
+- id: crowdstrike-falcon
+  name: CrowdStrike Falcon
+- id: dependabot
+  name: Dependabot
+- id: elastic-siem
+  name: Elastic Security
+- id: github-advanced-security
+  name: GitHub Advanced Security
+- id: gitleaks
+  name: Gitleaks
+- id: google-workspace
+  name: Google Workspace
+- id: hackerone
+  name: HackerOne
+- id: jira
+  name: Jira
+- id: knowbe4
+  name: KnowBe4
+- id: okta
+  name: Okta
+- id: owasp-zap
+  name: OWASP ZAP
+- id: pagerduty
+  name: PagerDuty
+- id: semgrep
+  name: Semgrep
+- id: slack
+  name: Slack
+- id: trivy
+  name: Trivy
+- id: wiz
+  name: Wiz

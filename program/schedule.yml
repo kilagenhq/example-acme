@@ -1,0 +1,137 @@
+# Recurring security activities — the annual calendar.
+#
+# These are activities, not document reviews: document reviews are tracked by
+# last_reviewed / next_review in each document's frontmatter and reported by
+# the weekly review-watch workflow.
+#
+# The next due date is computed as last_completed + frequency. Only
+# last_completed is edited here, and only when the activity is actually done.
+
+activities:
+  - id: penetration-test
+    name: External penetration test
+    frequency: annually
+    owner: role-ciso
+    domain: offensive
+    last_completed: 2026-03-18
+    tracker: https://acme.atlassian.net/browse/SEC-390
+    related: [std-vulnerability-management, tm-payments-api]
+
+  - id: segmentation-test
+    name: Cardholder data environment segmentation test
+    frequency: annually
+    owner: role-security-eng
+    domain: infra
+    last_completed: 2026-03-18
+    tracker: https://acme.atlassian.net/browse/SEC-391
+    related: [std-data-protection-controls, bp-payment-processing]
+
+  - id: disaster-recovery-exercise
+    name: Disaster recovery and restore exercise
+    frequency: annually
+    owner: role-security-eng
+    domain: infra
+    last_completed: 2025-11-14
+    tracker: https://acme.atlassian.net/browse/SEC-320
+    related: [bp-payment-processing, rsk-payments-platform-outage]
+
+  - id: incident-tabletop
+    name: Incident response tabletop exercise
+    frequency: semi-annually
+    owner: role-ciso
+    domain: ir
+    last_completed: 2026-04-09
+    tracker: https://acme.atlassian.net/browse/SEC-405
+    related: [std-incident-response, pb-phishing-response]
+
+  - id: risk-review
+    name: Risk register review with the security committee
+    frequency: quarterly
+    owner: role-ciso
+    domain: grc
+    last_completed: 2026-07-15
+    tracker: https://acme.atlassian.net/browse/GRC-158
+    related: [std-risk-framework]
+
+  - id: access-certification
+    name: Access certification campaign
+    frequency: quarterly
+    owner: role-grc-analyst
+    domain: iam
+    last_completed: 2026-07-10
+    tracker: https://acme.atlassian.net/browse/GRC-155
+    related: [std-access-control, pro-access-review]
+
+  - id: phishing-campaign
+    name: Phishing simulation campaign
+    frequency: quarterly
+    owner: role-grc-analyst
+    domain: awareness
+    last_completed: 2026-06-24
+    tracker: https://acme.atlassian.net/browse/GRC-149
+    related: [thr-credential-phishing]
+
+  - id: annual-security-training
+    name: Annual security awareness training
+    frequency: annually
+    owner: role-grc-analyst
+    domain: awareness
+    last_completed: 2026-01-31
+    tracker: https://acme.atlassian.net/browse/GRC-131
+    related: [pol-information-security]
+
+  - id: vendor-reassessment
+    name: Critical and important vendor reassessment
+    frequency: annually
+    owner: role-grc-analyst
+    domain: grc
+    last_completed: 2026-05-14
+    tracker: https://acme.atlassian.net/browse/GRC-144
+    related: [std-third-party-risk, vnd-okta, vnd-crowdstrike]
+
+  - id: policy-review
+    name: Policy and standard review cycle
+    frequency: annually
+    owner: role-ciso
+    domain: grc
+    # The cycle runs document by document rather than all at once; this is the
+    # last one completed, not the last one due. The dates are on each document.
+    last_completed: 2026-06-02
+    tracker: https://acme.atlassian.net/browse/GRC-147
+    related: [pol-information-security, pol-data-protection, std-incident-response, std-logging-monitoring]
+
+  - id: iso-surveillance-audit
+    name: ISO 27001 surveillance audit
+    frequency: annually
+    owner: role-grc-analyst
+    domain: grc
+    last_completed: 2026-02-05
+    tracker: https://acme.atlassian.net/browse/GRC-136
+    related: [pol-information-security]
+
+  - id: soc2-examination
+    name: SOC 2 Type II examination
+    frequency: annually
+    owner: role-grc-analyst
+    domain: grc
+    last_completed: 2026-04-30
+    tracker: https://acme.atlassian.net/browse/GRC-141
+    related: [pol-information-security]
+
+  - id: key-rotation-review
+    name: Cryptographic key rotation and policy review
+    frequency: semi-annually
+    owner: role-security-eng
+    domain: data-security
+    last_completed: 2026-08-01
+    tracker: https://acme.atlassian.net/browse/SEC-408
+    related: [std-data-protection-controls]
+
+  - id: business-impact-analysis
+    name: Business impact analysis refresh
+    frequency: every-2-years
+    owner: role-cto
+    domain: grc
+    last_completed: 2026-04-20
+    tracker: https://acme.atlassian.net/browse/GRC-142
+    related: [bp-payment-processing, bp-merchant-onboarding]

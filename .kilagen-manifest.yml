@@ -1,0 +1,44 @@
+kilagen_version: 0.1.0
+schema_version: 3
+deployment: github
+agent: claude
+files:
+  .claude/skills/draft-document/SKILL.md:
+    version: 0.1.0
+    sha256: f02c651f97936204f7bf113ff1d398997b33cc97ffde7e0ac50a3213cea216ad
+  .codespellrc:
+    version: 0.1.0
+    sha256: 8276c66a0ff597ec10be86d3d517940bf84127219496bcf9d56336b3f5c241eb
+  .github/workflows/kilagen-link-check.yml:
+    version: 0.1.0
+    sha256: ba25500acfe2c80ae8d09f766c36a595bf5b844c04ff66c67e60b10f6373569f
+  .github/workflows/kilagen-lint.yml:
+    version: 0.1.0
+    sha256: 34610c4a4ec140fcf6ca278509d4070a01be21cb2b84f9fa30d8bb219b486d80
+  .github/workflows/kilagen-pages.yml:
+    version: 0.1.0
+    sha256: 58f87b7b792bf34b188ec8305de77ce8214c661a4db9a0e3001503fc049df49d
+  .github/workflows/kilagen-review-watch.yml:
+    version: 0.1.0
+    sha256: c3ecbaf2fb965e50ad60c9e94e13aec3a0343e83087778de729e7a9d12e63569
+  .github/workflows/kilagen-semantic-refs.yml:
+    version: 0.1.0
+    sha256: 58775e4ada8a8170b250c662891adc28be1c9dd6f235f1221eeeb4003661b39b
+  .gitignore:
+    version: 0.1.0
+    sha256: ca85ba0345bcd9aaad6600999e58c9ef2af15b973bc7907207453f75d7eec3d3
+  .lychee.toml:
+    version: 0.1.0
+    sha256: 611e63393e94d59491a7dc56f53b71c48896306ffebf92d3cc5d700eb5996126
+  .markdownlint-cli2.yaml:
+    version: 0.1.0
+    sha256: 3b0ab23008992d89109cc7f518f793584fa95e4c19dd8025e7866db6339450f5
+  .nojekyll:
+    version: 0.1.0
+    sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  .pre-commit-config.yaml:
+    version: 0.1.0
+    sha256: 27614b1afb7ddd541a17010fd4ffb7da59921f8c468eb667d68cbeec6a702760
+  tests/test_program_content.py:
+    version: 0.1.0
+    sha256: dfafcbb620e64aebe6565ba404327e09090dc2a9917a5ffc4b0096c320a4ae6a

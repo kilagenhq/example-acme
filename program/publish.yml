@@ -1,0 +1,34 @@
+# The publishing contract — where documents are published, and which types go
+# there by default.
+#
+# One direction only: git to destination. A published page is a render of what
+# lives here, and edits belong in git. Comments coming back from a destination
+# are input for the owner, never merged as content.
+# The reasoning ships with the framework: see "Why Kilagen is this way".
+#
+# This file governs EXTERNAL destinations only. 'publish: none' keeps a
+# document out of the wiki; it does not keep it out of the dashboard, which
+# publishes the whole program and is as public as the repository itself.
+# It is not a confidentiality control. The built site is as public as wherever
+# it is deployed, and nothing under program/ is a confidentiality boundary.
+#
+# Nothing is published until a destination is declared below and a sync tool
+# consumes this file — 'kilagen check' validates the contract either way, so a
+# typo fails in CI rather than publishing nowhere in silence.
+
+destinations:
+  confluence:
+    space: SEC
+
+# Per type, where it goes unless the document overrides with
+# publish: none | all | [confluence]. Every default here is empty on purpose:
+# publishing outside the repository is opt-in, document by document, so nothing
+# leaves by forgetting rather than by deciding. The cost of that choice is that
+# a document nobody remembered to publish stays unpublished — which is the
+# failure Acme would rather have.
+defaults:
+  policy: []
+  standard: []
+  guideline: []
+  process: []
+  decision: []
